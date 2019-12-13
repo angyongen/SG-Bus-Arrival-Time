@@ -1,0 +1,45 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="referrer" content="no-referrer">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="./all_bus_stops.js"></script>
+	<script type="text/javascript" src="./all_bus_directions_plus_routes.js"></script>
+	<script type="text/javascript" src="./bus_arrival_time.js"></script>
+	<style type="text/css">
+		table { border-spacing: 0;}
+		table,td{border: 1px solid black;}
+	</style>
+	<link rel="stylesheet" type="text/css" href="./autocomplete.css">
+</head>
+<body>
+<noscript>This page requires Javascript to function.</noscript>
+<div id="noscript">Javascript is required to function</div>
+<div id="main" style="visibility: hidden">
+	<script type="text/javascript">
+		var updateInfo = document.createElement("div");
+		document.getElementById("main").appendChild(updateInfo)
+	</script>
+	<button onclick="request(display(inputCodeSelect.value))">Update</button>
+	Bus stop code: 
+	<script type="text/javascript">
+		var autocompleteWrapper = document.createElement('div')
+		autocompleteWrapper.className = "autocomplete-wrapper"
+		var inputCodeSelect = document.createElement('input')
+		inputCodeSelect.type = "text"
+		inputCodeSelect.placeholder = "bus stop code"
+		inputCodeSelect.onchange/*oninput*/ = function() {display(inputCodeSelect.value)()}
+		autocompleteWrapper.appendChild(inputCodeSelect);
+		document.getElementById("main").appendChild(autocompleteWrapper);
+	</script>
+	<script type="text/javascript" src="./autocomplete.js"></script>
+	<script type="text/javascript" src="./ui.js"></script>
+	<script type="text/javascript">request(display(inputCodeSelect.value))</script>
+</div>
+<script type="text/javascript">
+	document.getElementById("main").style.visibility = "";
+	document.getElementById("noscript").style.display = "none";
+
+</script>
+</body>
+</html>
